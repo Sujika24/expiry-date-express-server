@@ -7,6 +7,7 @@ require('dotenv').config();
 const connectDB = require('./src/config/db');
 const swaggerSpec = require('./src/config/swagger');
 const authRoutes = require('./src/routes/authRoutes');
+const productRoutes = require('./src/routes/productRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -25,6 +26,8 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Routes
 app.use('/auth', authRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/products', productRoutes);
 
 // Health Check Routes
 app.get('/health', (req, res) => {
