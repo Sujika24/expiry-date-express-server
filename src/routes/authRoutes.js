@@ -144,4 +144,16 @@ router.post(
   authController.login
 );
 
+/**
+ * @swagger
+ * /auth/logout:
+ *   post:
+ *     summary: Log out user and clear auth cookie
+ *     tags: [Authentication]
+ *     responses:
+ *       200:
+ *         description: Logged out successfully
+ */
+router.post('/logout', authController.logout);
+
 module.exports = router;
