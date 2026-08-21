@@ -1,3 +1,5 @@
+const authService = require('../services/authService');
+
 const setAuthCookie = (res, token) => {
   const isProduction = process.env.NODE_ENV === 'production';
   res.cookie('token', token, {
